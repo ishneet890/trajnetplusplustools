@@ -31,15 +31,15 @@ class Reader(object):
 
                 track = line.get('track')
                 if track is not None:
-                    row = TrackRow(track['f'], track['p'], track['x'], track['y'], \
+                    row = TrackRow(track['f'], track['p'], track['x'], track['y'], track['group'], track['obstacles'], \
                                    track.get('prediction_number'), track.get('scene_id'))
                     self.tracks_by_frame[row.frame].append(row)
                     continue
 
                 scene = line.get('scene')
                 if scene is not None:
-                    row = SceneRow(scene['id'], scene['p'], scene['s'], scene['e'], \
-                                   scene.get('fps'), scene.get('tag'))
+                    row = SceneRow(scene['id'], scene['p'], scene['s'], scene['e'], scene['group'], \
+                                   scene.get('fps'), scene.get('obstacles'))
                     self.scenes_by_id[row.scene] = row
 
     def scenes(self, randomize=False, limit=0, ids=None, sample=None):
