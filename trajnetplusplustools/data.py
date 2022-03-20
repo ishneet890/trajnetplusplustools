@@ -1,7 +1,7 @@
 from collections import namedtuple
 
 
-TrackRow = namedtuple('Row', ['frame', 'pedestrian', 'x', 'y', 'prediction_number', 'scene_id'])
-TrackRow.__new__.__defaults__ = (None, None, None, None, None, None)
-SceneRow = namedtuple('Row', ['scene', 'pedestrian', 'start', 'end', 'fps', 'tag'])
-SceneRow.__new__.__defaults__ = (None, None, None, None, None, None)
+PygameTrackRow = namedtuple('Row', ['frame', 'pedestrian', 'x', 'y', 'group', 'obstacles', 'prediction_number', 'scene_id'])
+PygameTrackRow.__new__.__defaults__ = (None, None, None, None, None, None, None, None)
+PygameSceneRow = namedtuple('Row', ['scene', 'pedestrian', 'start', 'end', 'group', 'fps', 'obstacles'])
+PygameSceneRow.__new__.__defaults__ = (None, None, None, None, None, None)
